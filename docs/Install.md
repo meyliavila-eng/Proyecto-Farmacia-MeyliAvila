@@ -23,16 +23,19 @@ cd farmacontrol-hn
 ---
 ### 2.2 Instalación de Dependencias
 Instale los módulos necesarios de React y las librerías de diseño (Tailwind CSS, Lucide):
+```bash
 npm install
-
+```
 ---
 
 ## 3. Ejecución y Despliegue
 
 ### 3.1 Modo de Desarrollo
 Para iniciar el servidor local con Vite y visualizar los cambios en tiempo real:
+```bash
 npm run dev
    *Nota*: El sistema estará disponible en http://localhost:5173.
+```
 
 ### 3.2 Construcción para Producción
 Para generar los archivos finales optimizados (carpeta dist):
