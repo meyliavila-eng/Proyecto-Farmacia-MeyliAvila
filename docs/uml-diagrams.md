@@ -72,3 +72,15 @@ sequenceDiagram
     I-->>S: Cambio Guardado en LocalStorage
 
   ```
+    ----
+
+  ## 4. Diagrama de Estado (Ciclo del Pedido)
+Ciclo de vida de una orden desde su creación hasta el despacho.
+```mermaid
+stateDiagram-v2
+    [*] --> Pendiente: Generar Factura
+    Pendiente --> Pagado: Procesar Pago
+    Pagado --> Despachado: Actualizar Inventario
+    Pendiente --> Cancelado: Anulación
+    Despachado --> [*]
+  ```
