@@ -1,51 +1,20 @@
-# Modelado UML del Sistema
+#  Modelado UML del Sistema - FarmaControl
 
 ## 1. Diagrama de Casos de Uso
-```mermaid
-useCaseDiagram
-  actor Admin
-  Admin --> (Gestionar Inventario)
-  Admin --> (Realizar Venta con ISV)
-  Admin --> (Filtrar por Categoría)
-```
+Representa las acciones que el Administrador puede realizar dentro del sistema farmacéutico.
 
-## Diagrama de Clases 
 ```mermaid
-classDiagram
-    class Medicamento {
-        +int id
-        +string nombre
-        +float precio
-        +int stock
-        +string categoria
-    }
-    class Inventario {
-        +list productos
-        +agregar()
-        +editar()
-        +filtrar()
-    }
-    class Factura {
-        +list items
-        +float isv_15
-        +calcularTotal()
-    }
-    Inventario "1" -- "*" Medicamento : contiene
+graph LR
+    Admin((Administrador))
+    
+    UC1(Gestionar Inventario)
+    UC2(Realizar Venta con ISV)
+    UC3(Filtrar por Categoría)
+    UC4(Consultar Reportes)
 
-    sequenceDiagram
-  Cajero->>Sistema: Selecciona Producto
-  Sistema->>Inventario: Verificar Stock
-  Inventario-->>Sistema: Stock OK
-  Sistema->>Factura: Calcular Total + 15% ISV
-  Sistema-->>Cajero: Mostrar Factura
-  ```
+    Admin --> UC1
+    Admin --> UC2
+    Admin --> UC3
+    Admin --> UC4
 
-  ## Diagrama de Secuencias
-```mermaid
-sequenceDiagram
-  Cajero->>Sistema: Selecciona Producto
-  Sistema->>Inventario: Verificar Stock
-  Inventario-->>Sistema: Stock OK
-  Sistema->>Factura: Calcular Total + 15% ISV
-  Sistema-->>Cajero: Mostrar Factura
   ```
