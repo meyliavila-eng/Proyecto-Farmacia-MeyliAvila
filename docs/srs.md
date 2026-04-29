@@ -1,4 +1,4 @@
-# 📑 Especificación de Requisitos (SRS)
+# Especificación de Requisitos (SRS)
 
 ## Historias de Usuario 
 1. **HU-01: Control de Inventario:** Como administrador, quiero clasificar medicamentos por categorías para mantener un orden lógico según el tipo de fármaco.
