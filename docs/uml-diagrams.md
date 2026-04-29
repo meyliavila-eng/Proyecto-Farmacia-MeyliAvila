@@ -18,3 +18,35 @@ graph LR
     Admin --> UC4
 
   ```
+  ----
+
+  ## 2. Diagrama de Clases
+Define la estructura de las entidades principales y sus relaciones dentro del código.
+```mermaid
+classDiagram
+    class Medicamento {
+        +int id
+        +string nombre
+        +float precio
+        +int stock
+        +string categoria
+    }
+    
+    class Inventario {
+        +list productos
+        +agregar(Medicamento)
+        +editar(int id)
+        +filtrar(string categoria)
+    }
+    
+    class Factura {
+        +list items
+        +float isv_15
+        +float total
+        +calcularTotal()
+    }
+    
+    Inventario "1" -- "*" Medicamento : contiene
+    Factura "1" -- "*" Medicamento : incluye
+
+  ```
