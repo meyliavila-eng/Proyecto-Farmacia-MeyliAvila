@@ -19,6 +19,7 @@ Ejecute el siguiente comando en su terminal para obtener el código fuente:
 ```bash
 git clone [https://github.com/TU_USUARIO/farmacontrol-hn.git](https://github.com/TU_USUARIO/farmacontrol-hn.git)
 cd farmacontrol-hn
+```
 ---
 ### 2.2 Instalación de Dependencias
 Instale los módulos necesarios de React y las librerías de diseño (Tailwind CSS, Lucide):
