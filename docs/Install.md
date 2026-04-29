@@ -1,4 +1,4 @@
-# 🛠️ Guía de Instalación - FarmaControl
+# Guía de Instalación - FarmaControl
 
 Este documento detalla los pasos necesarios para configurar el entorno de desarrollo y desplegar el sistema **FarmaControl** de manera local.
 
