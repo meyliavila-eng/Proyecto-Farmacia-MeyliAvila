@@ -34,9 +34,14 @@ npm install
 Para iniciar el servidor local con Vite y visualizar los cambios en tiempo real:
 ```bash
 npm run dev
-   *Nota*: El sistema estará disponible en http://localhost:5173.
 ```
+   *Nota*: El sistema estará disponible en http://localhost:5173.
+
 
 ### 3.2 Construcción para Producción
 Para generar los archivos finales optimizados (carpeta dist):
+```bash
 npm run build
+```
+
+----
