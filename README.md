@@ -8,9 +8,8 @@ Representación del flujo lógico del sistema:
 
 ```mermaid
 stateDiagram-v2
-    [*] --> Login: Acceso al Sistema
-    Login --> Inventario: Autenticación OK
-    Inventario --> Facturacion: Gestión de Venta
-    Facturacion --> Carrito: Selección de Medicamentos
-    Carrito --> Inventario: Confirmación (Ajuste de Stock)
-    Inventario --> [*]: Cerrar Sesión
+    [*] --> Pendiente: Creación de Factura
+    Pendiente --> Pagado: Procesar Pago
+    Pagado --> Entregado: Actualizar Stock
+    Pendiente --> Cancelado: Error/Anulación
+    Entregado --> [*]
