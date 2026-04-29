@@ -52,7 +52,7 @@ npm run build
 Se seleccionó **Vite** por su eficiencia en el *Hot Module Replacement* (HMR), lo que permite una experiencia de desarrollo ágil y tiempos de compilación optimizados.
 
 ## Estándares y Estructura
-El proyecto sigue la arquitectura definida en el **Laboratorio 1**. Se mantiene una separación clara entre las responsabilidades:
+Se mantiene una separación clara entre las responsabilidades:
 * **Lógica de Componentes:** Código fuente modular y reutilizable.
 * **Documentación Técnica:** Centralizada en el directorio `/docs`.
 
