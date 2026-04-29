@@ -1,84 +1,67 @@
 import React from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
-
-// Iconos corregidos (Sin errores de sintaxis)
-const Icons = {
-  Dashboard: (
-    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v12a2 2 0 01-2 2h-2a2 2 0 01-2-2V6z" />
-    </svg>
-  ),
-  Inventario: (
-    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
-    </svg>
-  ),
-  Facturacion: (
-    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-    </svg>
-  )
-};
+import { Link, useLocation } from 'react-router-dom';
 
 export default function Navbar() {
-  const navigate = useNavigate();
   const location = useLocation();
 
-  const menuItems = [
-    { name: 'Dashboard', path: '/dashboard', icon: Icons.Dashboard },
-    { name: 'Inventario', path: '/inventario', icon: Icons.Inventario },
-    { name: 'Facturación', path: '/facturacion', icon: Icons.Facturacion },
-  ];
+  // Estilo de los links mejorado para combinar con los módulos
+  const linkStyle = (path) => 
+    `flex items-center gap-2 px-6 py-2.5 rounded-2xl font-black text-xs uppercase tracking-widest transition-all duration-300 ${
+      location.pathname === path 
+      ? 'bg-slate-900 text-white shadow-[0_10px_20px_-5px_rgba(15,23,42,0.3)] scale-105' 
+      : 'text-slate-500 hover:bg-white/60 hover:text-slate-900 hover:shadow-sm border border-transparent hover:border-white'
+    }`;
 
   return (
-    <div className="fixed top-6 w-full flex justify-center z-50 px-6">
-      <nav className="max-w-7xl w-full bg-white/70 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] rounded-[2rem] px-8 py-3 flex justify-between items-center transition-all duration-300">
-        
-        {/* Identidad Visual con Micro-interacción */}
-        <Link to="/" className="flex items-center gap-3 group">
-          <div className="bg-green-600 text-white w-10 h-10 rounded-2xl flex items-center justify-center font-black shadow-lg shadow-green-200 group-hover:rotate-[15deg] transition-all duration-500">
-            <span className="text-xl">+</span>
-          </div>
-          <div className="flex flex-col leading-none">
-            <span className="text-lg font-black text-gray-900 tracking-tighter">
-              Farma<span className="text-green-600">Control</span>
-            </span>
-            <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Honduras</span>
-          </div>
+    <nav className="fixed top-0 left-0 right-0 h-20 bg-white/40 backdrop-blur-xl border-b border-white/60 z-50 px-10 flex items-center justify-between">
+      
+      {/* Logo: Estilo coherente con Login/Menu */}
+      <Link to="/menu" className="flex items-center gap-3 group">
+        <div className="bg-slate-900 w-11 h-11 rounded-[1rem] flex items-center justify-center text-white font-black text-xl italic group-hover:rotate-[15deg] transition-all duration-500 shadow-lg shadow-slate-900/20">
+          FC
+        </div>
+        <div className="hidden sm:block">
+          <span className="text-2xl font-black text-slate-900 block tracking-tighter leading-none italic">
+            Farma<span className="text-blue-600">Control</span>
+          </span>
+          <p className="text-[8px] font-black text-slate-400 uppercase tracking-[0.4em] mt-1">Terminal Honduras</p>
+        </div>
+      </Link>
+
+      {/* Navegación Central: Estilo de "Píldora" */}
+      <div className="hidden lg:flex items-center gap-2 bg-slate-100/30 p-1.5 rounded-[2rem] border border-white/40 shadow-inner">
+        <Link to="/menu" className={linkStyle('/menu')}>
+          <span className="text-base">🏠</span> Inicio
         </Link>
+        <Link to="/inventario" className={linkStyle('/inventario')}>
+          <span className="text-base">📦</span> Inventario
+        </Link>
+        <Link to="/facturacion" className={linkStyle('/facturacion')}>
+          <span className="text-base">📑</span> Facturación
+        </Link>
+        <Link to="/clientes" className={linkStyle('/clientes')}>
+          <span className="text-base">👥</span> Clientes
+        </Link>
+      </div>
 
-        {/* Navegación Intuitiva (Clase 3: Clean Design) */}
-        <div className="hidden md:flex bg-gray-100/50 p-1.5 rounded-2xl gap-1">
-          {menuItems.map((item) => {
-            const isActive = location.pathname === item.path;
-            return (
-              <Link 
-                key={item.path}
-                to={item.path} 
-                className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold transition-all ${
-                  isActive 
-                    ? "bg-white text-green-700 shadow-sm ring-1 ring-black/5" 
-                    : "text-gray-500 hover:text-gray-900 hover:bg-white/50"
-                }`}
-              >
-                {item.icon}
-                {item.name}
-              </Link>
-            );
-          })}
+      {/* Perfil del Usuario: Diseño Premium */}
+      <div className="flex items-center gap-5">
+        <div className="text-right hidden md:block border-r border-slate-200 pr-5">
+          <p className="text-sm font-black text-slate-900 leading-none">Meyli Avila</p>
+          <div className="flex items-center justify-end gap-1.5 mt-1">
+            <div className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse"></div>
+            <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Admin Global</p>
+          </div>
         </div>
-
-        {/* Botón de Acción Principal (Seguridad - Clase 4) */}
-        <div className="flex items-center gap-4">
-          <button 
-            onClick={() => navigate('/login')}
-            className="group relative flex items-center gap-2 bg-gray-900 text-white px-7 py-3 rounded-2xl text-sm font-black hover:bg-green-600 transition-all duration-300 shadow-xl shadow-gray-200 active:scale-95 overflow-hidden"
-          >
-            <span className="relative z-10">Acceder</span>
-            <svg className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
-          </button>
+        
+        {/* Avatar con borde de gradiente sutil */}
+        <div className="relative group cursor-pointer">
+            <div className="absolute -inset-1 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full blur opacity-20 group-hover:opacity-40 transition-opacity"></div>
+            <div className="relative w-11 h-11 bg-slate-100 rounded-full border-2 border-white shadow-sm flex items-center justify-center font-black text-slate-400 group-hover:text-slate-900 transition-colors">
+                MA
+            </div>
         </div>
-      </nav>
-    </div>
+      </div>
+    </nav>
   );
 }

@@ -1,58 +1,46 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-50 border-t border-green-100">
-      <div className="max-w-6xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+    <footer className="relative z-20 max-w-5xl mx-auto w-full px-6">
+      {/* -mt-12: Sube el footer con fuerza para eliminar el espacio en blanco.
+        py-5: Relleno vertical para que las letras tengan aire.
+      */}
+      <div className="bg-white/60 backdrop-blur-md py-5 px-10 -mt-12 mb-10 rounded-[2.5rem] border border-white shadow-[0_-10px_40px_-15px_rgba(0,0,0,0.05)] flex flex-col md:flex-row justify-between items-center gap-6">
+        
+        {/* Información de Marca - Letras más grandes */}
+        <div className="flex items-center gap-4">
+          <div className="bg-slate-900 text-white w-9 h-9 rounded-xl flex items-center justify-center font-black text-sm italic shadow-lg">
+            FC
+          </div>
+          <div className="text-left">
+            <p className="text-sm font-black text-slate-900 tracking-tight">FarmaControl Honduras</p>
+            <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">&copy; 2026 Reservados todos los derechos</p>
+          </div>
+        </div>
+
+        {/* Información Técnica y Dev - Letras claras (text-xs) */}
+        <div className="flex flex-wrap justify-center items-center gap-8">
+          <div className="flex flex-col items-center md:items-end">
+            <span className="text-[10px] font-black text-slate-300 uppercase tracking-widest">Ubicación</span>
+            <p className="text-xs font-bold text-slate-600">Tegucigalpa, M.D.C.</p>
+          </div>
           
-          <div className="col-span-1">
-            <Link to="/" className="text-2xl font-black text-green-600 tracking-tighter">
-              Farma<span className="text-gray-900">Control</span>
-            </Link>
-            <p className="text-gray-500 mt-4 leading-relaxed">
-              Tecnología de precisión para la gestión de farmacias y droguerías en Honduras.
-            </p>
+          <div className="h-8 w-[1px] bg-slate-200 hidden md:block"></div>
+          
+          <div className="flex flex-col items-center md:items-end">
+            <span className="text-[10px] font-black text-slate-300 uppercase tracking-widest">Sistema</span>
+            <p className="text-xs font-bold text-blue-600">Versión 1.0.4 Estable</p>
           </div>
 
-          {/* Enlaces a Plataforma - Conectados a tus rutas reales */}
-          <div>
-            <h3 className="font-bold text-gray-900 mb-6 uppercase text-xs tracking-widest">Plataforma</h3>
-            <ul className="space-y-4 text-gray-500 text-sm">
-              <li><Link to="/inventario" className="hover:text-green-600 transition-colors font-medium">Gestión de Lotes</Link></li>
-              <li><Link to="/dashboard" className="hover:text-green-600 transition-colors font-medium">Control de Vencimientos</Link></li>
-              <li><Link to="/facturacion" className="hover:text-green-600 transition-colors font-medium">Punto de Venta (SAR)</Link></li>
-            </ul>
-          </div>
+          <div className="h-8 w-[1px] bg-slate-200 hidden md:block"></div>
 
-          {/* Enlaces de Usuario */}
-          <div>
-            <h3 className="font-bold text-gray-900 mb-6 uppercase text-xs tracking-widest">Cuenta</h3>
-            <ul className="space-y-4 text-gray-500 text-sm">
-              <li><Link to="/login" className="hover:text-green-600 transition-colors font-medium">Acceso Administrativo</Link></li>
-              <li><Link to="/registro" className="hover:text-green-600 transition-colors font-medium">Registro de Sucursal</Link></li>
-              <li><Link to="/precios" className="hover:text-green-600 transition-colors font-medium">Planes y Precios</Link></li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="font-bold text-gray-900 mb-6 uppercase text-xs tracking-widest">Soporte Local</h3>
-            <div className="space-y-4 text-sm text-gray-500">
-              <p className="flex items-center gap-2">📍 Tegucigalpa, Honduras</p>
-              <p className="flex items-center gap-2">📞 +504 2200-0000</p>
-              <p className="flex items-center gap-2 font-bold text-green-700">📧 soporte@farmacontrol.hn</p>
-            </div>
+          <div className="flex flex-col items-center md:items-end">
+            <span className="text-[10px] font-black text-slate-300 uppercase tracking-widest">Desarrollado por</span>
+            <p className="text-xs font-black text-slate-900">Meyli Avila</p>
           </div>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-400 text-[10px] font-black uppercase tracking-widest">
-          <span>© 2026 FarmaControl Honduras.</span>
-          <div className="flex gap-6">
-            <span className="hover:text-gray-600 cursor-pointer">Cumplimiento ARSA</span>
-            <span className="hover:text-gray-600 cursor-pointer">Privacidad Pacientes</span>
-          </div>
-        </div>
       </div>
     </footer>
   );
