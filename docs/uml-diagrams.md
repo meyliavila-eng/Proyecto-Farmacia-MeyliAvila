@@ -50,3 +50,25 @@ classDiagram
     Factura "1" -- "*" Medicamento : incluye
 
   ```
+   ----
+
+  ## 3. Diagrama de Secuencia (Proceso de Venta)
+Muestra la interacción entre los componentes del sistema cuando se realiza una transacción.
+```mermaid
+sequenceDiagram
+    participant C as Cajero
+    participant S as Sistema
+    participant I as Inventario
+    participant F as Factura
+
+    C->>S: Selecciona Medicamento
+    S->>I: Verificar Stock Disponible
+    I-->>S: Stock Confirmado
+    S->>F: Agregar Item y Calcular ISV (15%)
+    F-->>S: Total Actualizado
+    S-->>C: Mostrar Resumen de Factura
+    C->>S: Confirmar Venta
+    S->>I: Actualizar Stock (Descontar)
+    I-->>S: Cambio Guardado en LocalStorage
+
+  ```
