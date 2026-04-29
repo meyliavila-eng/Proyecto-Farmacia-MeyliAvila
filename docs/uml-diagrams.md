@@ -8,7 +8,7 @@ useCaseDiagram
   Admin --> (Realizar Venta con ISV)
   Admin --> (Filtrar por Categoría)
 ```
-----
+
 ## Diagrama de Clases 
 ```mermaid
 classDiagram
@@ -39,7 +39,7 @@ classDiagram
   Sistema->>Factura: Calcular Total + 15% ISV
   Sistema-->>Cajero: Mostrar Factura
   ```
-  ---
+
   ## Diagrama de Secuencias
 ```mermaid
 sequenceDiagram
